@@ -16,8 +16,13 @@ public class TreeNode {
     //rightNode: used to store the right node branching from current node
     private TreeNode rightNode;
 
+    /**
+     * constructoor method
+     * @param newWord new value to set word to
+     */
     public TreeNode(String newWord) {
         word = newWord;
+        //constructor calls method to convert word into an array of integers
         intArray = toIntArray(word);
         leftNode = null;
         rightNode = null;
@@ -60,6 +65,22 @@ public class TreeNode {
             intArray[i] = parseInt(tempArray[i]);
         }
         return(intArray);
+    }
+
+    public void addNode(int word, String newWord) {
+
+        //checking if the id is lower, higher or match, and placing the new node dependant on the result
+        if(newID < id) {
+            leftNode = new TreeNode(word, newWord);
+        }
+
+        else if(newID > id) {
+            rightNode = new TreeNode(newID, newName, newCost);
+        }
+
+        else {
+            System.out.println("Error, IDs cannot match");
+        }
     }
 
 
